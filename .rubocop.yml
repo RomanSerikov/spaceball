@@ -37,5 +37,8 @@ Style/PercentLiteralDelimiters:
 Style/UnneededPercentQ:
   Enabled: false
 
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 Layout/TrailingWhitespace:
   Enabled: false
