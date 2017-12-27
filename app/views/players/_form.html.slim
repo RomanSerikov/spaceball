@@ -1,0 +1,18 @@
+= form_for player do |form|
+
+  = render 'common/errors', resource: player
+
+  .field
+    = form.label :first_name
+    = form.text_field :first_name
+
+  .field
+    = form.label :last_name
+    = form.text_field :last_name
+
+  .field
+    = form.label 'Choose team'
+    = form.collection_select :team_id, Team.all, :id, :title, { prompt: "Choose team" }
+
+  .actions
+    = form.submit 'Create'
