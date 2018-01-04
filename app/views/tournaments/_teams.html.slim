@@ -1,0 +1,12 @@
+- if tournament.teams.present?
+  h3 Teams in tournament:
+  ul
+    - tournament.teams.each do |team|
+      li #{team.title} | #{link_to 'Remove team', remove_team_tournament_path(:team => team.id), method: :delete, remote: true}
+- else
+  p No teams in this tournament yet.
+
+h3 Teams not in tournament list:
+ul
+- Team.not_participating(tournament).each do |team|
+  li #{team.title} | #{link_to 'Add team', add_team_tournament_path(:team => team.id), method: :post, remote: true}

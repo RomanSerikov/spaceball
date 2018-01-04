@@ -4,4 +4,8 @@ Rails.application.routes.draw do
 
   resources :teams
   resources :players
+  resources :tournaments do
+    post :add_team, on: :member
+    delete :remove_team, on: :member
+  end
 end
