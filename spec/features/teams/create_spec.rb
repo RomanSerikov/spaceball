@@ -6,12 +6,16 @@ feature 'Create team', %q{
   I want to be able to create team
 } do
 
+  given(:obj_path) { new_team_path }
+
+  it_behaves_like 'Restricted access'
+
   describe 'Administrator' do
     given(:admin) { create(:user, admin: true) }
 
     background do
       sign_in admin
-      visit new_team_path
+      visit obj_path
     end
 
     scenario 'creates team with valid parameters' do
@@ -29,23 +33,6 @@ feature 'Create team', %q{
       click_on 'Create'
 
       expect(page).to have_content 'Title can\'t be blank'
-    end
-  end
-
-  describe 'Not an administrator' do
-    given(:alice) { create(:user) }
-
-    scenario 'user tries to create team' do
-      sign_in alice
-      visit new_team_path
-
-      expect(page).to have_content 'You are not authorized to access this page.'
-    end
-
-    scenario 'guest tries to create team' do
-      visit new_team_path
-
-      expect(page).to have_content 'You need to sign in or sign up before continuing.'
     end
   end
 end
