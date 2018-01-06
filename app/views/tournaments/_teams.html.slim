@@ -1,12 +1,18 @@
 - if tournament.teams.present?
   h3 Teams in tournament:
-  ul
+  .list-group
     - tournament.teams.each do |team|
-      li #{team.title} | #{link_to 'Remove team', remove_team_tournament_path(:team => team.id), method: :delete, remote: true}
+      = link_to remove_team_tournament_path(:team => team.id), method: :delete, remote: true, class: "list-group-item" do
+        span.glyphicon.glyphicon-minus
+        |  
+        = team.title
 - else
   p No teams in this tournament yet.
 
 h3 Teams not in tournament list:
-ul
-- Team.not_participating(tournament).each do |team|
-  li #{team.title} | #{link_to 'Add team', add_team_tournament_path(:team => team.id), method: :post, remote: true}
+.list-group
+  - Team.not_participating(tournament).each do |team|
+    = link_to add_team_tournament_path(:team => team.id), method: :post, remote: true, class: "list-group-item" do
+      span.glyphicon.glyphicon-plus
+      |  
+      = team.title

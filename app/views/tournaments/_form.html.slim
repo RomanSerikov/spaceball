@@ -2,17 +2,17 @@
 
   = render 'common/errors', resource: tournament
 
-  .field
+  .form-group
     = form.label :title
-    = form.text_field :title
+    = form.text_field :title, class: "form-control"
 
-  .field
+  .form-group
     = form.label :start_date
-    = form.date_field :start_date
+    = form.date_field :start_date, class: "form-control"
 
-  .field
+  .form-group
     = form.label :end_date
-    = form.date_field :end_date
+    = form.date_field :end_date, class: "form-control"
 
   .actions
-    = form.submit 'Create'
+    = form.submit "Create", class: "btn btn-primary"

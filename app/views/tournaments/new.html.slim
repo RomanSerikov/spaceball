@@ -1,3 +1,8 @@
-h1 New tournament
+.row
+  .col-md-4
+    h1 New tournament
 
-= render 'form', tournament: @tournament
+    = render 'form', tournament: @tournament
+
+    .control-links
+      = link_to "Back to tournaments list", tournaments_path
