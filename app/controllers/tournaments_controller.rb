@@ -1,5 +1,5 @@
 class TournamentsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create]
+  before_action :authenticate_user!, only: %i[index new create]
   before_action :set_tournament, only: %i[show add_team remove_team]
 
   authorize_resource

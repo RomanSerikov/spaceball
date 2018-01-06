@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "teams#index"
 
   resources :teams, only: %i[index show new create]
-  resources :players, only: %i[show new create]
+  resources :players, only: %i[index show new create]
   resources :tournaments, only: %i[index show new create] do
     post :add_team, on: :member
     delete :remove_team, on: :member

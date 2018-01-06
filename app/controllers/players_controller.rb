@@ -1,7 +1,11 @@
 class PlayersController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create]
+  before_action :authenticate_user!, only: %i[index new create]
   
   authorize_resource
+
+  def index
+    @players = Player.all
+  end
 
   def new
     @player = Player.new
