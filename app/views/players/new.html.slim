@@ -1,3 +1,8 @@
-h1 New player
+.row
+  .col-md-4
+    h1 New player
 
-= render 'form', player: @player
+    = render "form", player: @player
+
+    .control-links
+      = link_to "Back to players list", players_path

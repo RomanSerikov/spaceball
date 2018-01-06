@@ -1,3 +1,8 @@
-h2 #{@player.first_name} #{@player.last_name}
+.row
+  .col-md-4
+    h2 #{@player.first_name} #{@player.last_name}
 
-p Team: #{@player&.team&.title}
+    p Team: #{@player&.team&.title}
+
+    .control-links
+      = link_to "Back to players list", teams_path
