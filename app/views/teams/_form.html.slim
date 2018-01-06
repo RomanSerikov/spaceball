@@ -4,11 +4,11 @@
 
   .field
     = form.label :title
-    = form.text_field :title
+    = form.text_field :title, class: "form-control"
 
   .field
     = form.label :description
-    = form.text_area :description
+    = form.text_area :description, class: "form-control"
 
   .actions
-    = form.submit 'Create'
+    = form.submit 'Create', class: "btn btn-primary"
