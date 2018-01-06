@@ -4,6 +4,10 @@ class TournamentsController < ApplicationController
 
   authorize_resource
 
+  def index
+    @tournaments = Tournament.all
+  end
+
   def new
     @tournament = Tournament.new  
   end
