@@ -6,7 +6,7 @@ feature 'Create tournament', %q{
   I want to be able to create tournament
 } do
 
-  given(:obj_path) { new_tournament_path }
+  given(:obj_path) { new_admin_tournament_path }
 
   it_behaves_like 'Restricted access'
 

@@ -6,7 +6,7 @@ feature 'Create team', %q{
   I want to be able to create team
 } do
 
-  given(:obj_path) { new_team_path }
+  given(:obj_path) { new_admin_team_path }
 
   it_behaves_like 'Restricted access'
 

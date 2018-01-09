@@ -16,7 +16,7 @@ feature 'Remove teams from tournament', %q{
       sign_in admin
       tournament.add_team(team_a.id)
       tournament.add_team(team_b.id)
-      visit tournament_path(tournament)
+      visit admin_tournament_path(tournament)
     end
 
     scenario 'can remove one team from tournament', js: true do

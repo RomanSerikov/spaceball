@@ -6,7 +6,7 @@ feature 'Create player', %q{
   I want to be able to add players to teams
 } do
 
-  given(:obj_path) { new_player_path }
+  given(:obj_path) { new_admin_player_path }
 
   it_behaves_like 'Restricted access'
 

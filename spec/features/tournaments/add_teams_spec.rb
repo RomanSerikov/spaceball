@@ -14,7 +14,7 @@ feature 'Add teams to tournament', %q{
 
     background do
       sign_in admin
-      visit tournament_path(tournament)
+      visit admin_tournament_path(tournament)
     end
 
     scenario 'can add teams to tournament', js: true do
