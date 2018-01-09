@@ -1,0 +1,8 @@
+.row
+  .col-md-4
+    h1 Tournaments List
+
+    .list-group = render @tournaments
+
+    .control-links
+      = link_to "Add tournament", new_admin_tournament_path, class: "btn btn-primary"
