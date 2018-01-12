@@ -1,0 +1,18 @@
+= form_for [:admin, tournament] do |form|
+
+  = render 'common/errors', resource: tournament
+
+  .form-group
+    = form.label :title
+    = form.text_field :title, class: "form-control"
+
+  .form-group
+    = form.label :start_date
+    = form.date_field :start_date, class: "form-control"
+
+  .form-group
+    = form.label :end_date
+    = form.date_field :end_date, class: "form-control"
+
+  .actions
+    = form.submit "Create", class: "btn btn-primary"

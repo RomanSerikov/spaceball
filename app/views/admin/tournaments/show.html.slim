@@ -1,0 +1,12 @@
+.row
+  .col-md-4
+    h2 #{@tournament.title}
+
+    p From: #{@tournament.start_date}
+    p To: #{@tournament.end_date}
+
+    .tournament-teams
+      = render 'admin/tournaments/teams', tournament: @tournament
+
+    .control-links
+      = link_to "Back to tournaments list", admin_tournaments_path

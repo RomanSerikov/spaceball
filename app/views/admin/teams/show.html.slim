@@ -1,0 +1,16 @@
+.row
+  .col-md-4
+    h2 Team #{@team.title}
+
+    p Description: #{@team&.description}
+
+    - if @team.players.present?
+      h3 Team roster
+      ul
+        - @team.players.each do |player|
+          li #{player.first_name} #{player.last_name}
+    - else
+      p No players in this team yet.
+
+    .control-links
+      = link_to "Back to teams list", admin_teams_path

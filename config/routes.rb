@@ -1,3 +1,17 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users
+  root to: "teams#index"
+
+  namespace :admin do
+    resources :teams, only: %i[index show new create]
+    resources :players, only: %i[index show new create]
+    resources :tournaments, only: %i[index show new create] do
+      post :add_team, on: :member
+      delete :remove_team, on: :member
+    end
+  end
+
+  resources :teams, only: %i[index show]
+  resources :players, only: %i[index show]
+  resources :tournaments, only: %i[index show]
 end

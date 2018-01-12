@@ -4,7 +4,8 @@ RSpec.configure do |config|
   Capybara.server = :puma
   
   Capybara.javascript_driver = :webkit
-   
+  
+  config.include Devise::Test::IntegrationHelpers, type: :feature
   config.use_transactional_fixtures = false
 
   config.before(:suite) do
