@@ -25,7 +25,7 @@ RSpec.describe Match, type: :model do
 
     it 'validates that teams are different' do
       expect(game).to be_invalid
-      expect(game.errors.messages[:team_a]).to include("teams can't be the same")
+      expect(game.errors[:base]).to include("Teams can't be the same")
     end
   end
 end

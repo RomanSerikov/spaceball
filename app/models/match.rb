@@ -11,6 +11,6 @@ class Match < ApplicationRecord
   private
 
     def check_teams_are_different
-      errors.add(:team_a, "teams can't be the same") if team_a == team_b
+      errors.add(:base, "Teams can't be the same") if team_a == team_b
     end
 end
