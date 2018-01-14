@@ -12,6 +12,10 @@ class Match < ApplicationRecord
     "#{team_a.title} - #{team_b.title}"
   end
 
+  def self.played(tournament, team)
+    where(tournament: tournament).where(team_a: team).or(Match.where(team_b: team)).count
+  end
+
   private
 
     def check_teams_are_different
