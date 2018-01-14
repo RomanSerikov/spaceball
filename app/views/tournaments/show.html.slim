@@ -9,5 +9,5 @@
       = render 'tournaments/teams', tournament: @tournament
 
     .control-links
-      p = link_to "Tournament matches", tournament_matches_path(@tournament)
+      p = link_to "Tournament schedule", tournament_matches_path(@tournament), class: "btn btn-primary"
       p = link_to "Back to tournaments list", tournaments_path
