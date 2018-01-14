@@ -1,0 +1,8 @@
+.row
+  .col-md-4
+    h1 Matches List
+
+    .list-group = render @matches
+
+    .control-links
+      p = link_to "Back to tournament", tournament_path(@tournament), class: "btn btn-primary"

@@ -1,0 +1,13 @@
+w.row
+  .col-md-4
+    h2 #{@match.start_date}
+    h2 #{@match.start_time.try(:strftime, "%H:%M")}
+    h2 #{@match.title}
+
+    - if @match.team_a_goals.nil?
+      p Match haven't played yet.
+    - else
+      h3 #{@match.team_a_goals} : #{@match.team_b_goals}
+
+    .control-links
+      p = link_to "Back to matches list", tournament_matches_path(@match.tournament)

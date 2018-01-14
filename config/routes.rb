@@ -14,5 +14,7 @@ Rails.application.routes.draw do
 
   resources :teams, only: %i[index show]
   resources :players, only: %i[index show]
-  resources :tournaments, only: %i[index show]
+  resources :tournaments, only: %i[index show] do
+    resources :matches, only: %i[index show], shallow: true
+  end
 end
