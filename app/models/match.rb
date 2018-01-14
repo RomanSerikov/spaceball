@@ -8,6 +8,10 @@ class Match < ApplicationRecord
   validates :team_b_goals, inclusion: { in: (0..50).to_a << nil }
   validate :check_teams_are_different
 
+  def title
+    "#{team_a.title} - #{team_b.title}"
+  end
+
   private
 
     def check_teams_are_different

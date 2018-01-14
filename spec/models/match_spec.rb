@@ -28,4 +28,14 @@ RSpec.describe Match, type: :model do
       expect(game.errors[:base]).to include("Teams can't be the same")
     end
   end
+
+  describe '#title' do
+    let!(:team_1) { create(:team, title: 'Arsenal') } 
+    let!(:team_2) { create(:team, title: 'Barcelona') }
+    let!(:game) { create(:match, team_a: team_1, team_b: team_2) }
+
+    it 'returns title that contains both teams title' do
+      expect(game.title).to eq "#{team_1.title} - #{team_2.title}"
+    end
+  end
 end

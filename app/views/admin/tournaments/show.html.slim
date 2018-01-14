@@ -9,4 +9,5 @@
       = render 'admin/tournaments/teams', tournament: @tournament
 
     .control-links
-      = link_to "Back to tournaments list", admin_tournaments_path
+      p = link_to "Tournament matches", admin_tournament_matches_path(@tournament)
+      p = link_to "Back to tournaments list", admin_tournaments_path
