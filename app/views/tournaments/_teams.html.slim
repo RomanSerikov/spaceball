@@ -1,12 +1,22 @@
-- if tournament.teams.present?
-  h3 Teams in tournament:
-  .list-group.participants
-    - tournament.teams.each do |team|
-      .list-group-item = team.title
-- else
-  p No teams in this tournament yet.
+table.table.table-striped
+  thead
+    tr
+      td Position
+      td Team
+      td Games
+      td Wins
+      td Loss
+      td Draw
+      td Points
+    - Team.by_points(tournament).each.with_index(1) do |team, i|
+      tr
+        td = i
+        td = team.title
+        td = team.played(tournament)
+        td = team.wins(tournament)
+        td = team.loss(tournament)
+        td = team.draw(tournament)
+        td = team.points(tournament)
 
-h3 Teams not in tournament list:
-.list-group.candidates
-  - Team.not_participating(tournament).each do |team| 
-    .list-group-item = team.title
+
+    

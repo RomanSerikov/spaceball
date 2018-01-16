@@ -1,0 +1,22 @@
+= form_for [:admin, tournament, game] do |form|
+
+  = render "common/errors", resource: game
+
+  .form-group
+    = form.label :start_date
+    = form.date_field :start_date, class: "form-control"
+
+  .form-group
+    = form.label :start_time
+    = form.time_field :start_time, class: "form-control"
+
+  .form-group
+    = form.label "Choose first team"
+    = form.collection_select :team_a_id, tournament.teams, :id, :title, { prompt: "Choose first team" }, class: "form-control"
+
+  .form-group
+    = form.label "Choose second team"
+    = form.collection_select :team_b_id, tournament.teams, :id, :title, { prompt: "Choose second team" }, class: "form-control"
+
+  .actions
+    = form.submit "Create", class: "btn btn-primary"

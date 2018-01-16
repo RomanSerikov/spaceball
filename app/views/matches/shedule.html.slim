@@ -1,0 +1,10 @@
+.row
+  .col-md-4
+    h2 #{@tournament.title} shedule
+
+    .tournament-teams
+      = render 'tournaments/sheduled_teams', tournament: @tournament
+
+    .control-links
+      p = link_to "Tournament matches", tournament_matches_path(@tournament)
+      p = link_to "Back to tournaments list", tournaments_path

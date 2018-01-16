@@ -1,6 +1,7 @@
 class Tournament < ApplicationRecord
   has_many :tournaments_teams
   has_many :teams, through: :tournaments_teams
+  has_many :matches
 
   validates :title, :start_date, :end_date, presence: true
 

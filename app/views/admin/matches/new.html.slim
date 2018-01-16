@@ -1,0 +1,8 @@
+.row
+  .col-md-4
+    h1 New match
+
+    = render partial: "form", locals: { tournament: @tournament, game: @match }
+
+    .control-links
+      = link_to "Back to matches list", admin_tournament_matches_path(@tournament)

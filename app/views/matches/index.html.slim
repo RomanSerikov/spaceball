@@ -1,0 +1,15 @@
+.row
+  .col-md-8
+    h1 Matches List
+
+    table.table.table-striped
+      thead
+        tr
+          td Teams
+          td Date
+          td Time
+          td
+        = render @matches
+
+    .control-links
+      p = link_to "Back to tournament", tournament_path(@tournament), class: "btn btn-primary"

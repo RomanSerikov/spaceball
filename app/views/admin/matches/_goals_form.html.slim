@@ -1,0 +1,14 @@
+= form_for [:admin, game] do |form|
+
+  = render "common/errors", resource: game
+
+  .form-group
+    = form.label "#{game.team_a.title} goals"
+    = form.number_field :team_a_goals, class: "form-control"
+
+  .form-group
+    = form.label "#{game.team_b.title} goals"
+    = form.number_field :team_b_goals, class: "form-control"
+
+  .actions
+    = form.submit "Save match score", class: "btn btn-primary"

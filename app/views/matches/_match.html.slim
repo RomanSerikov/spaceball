@@ -1,0 +1,5 @@
+tr
+  td = match.title
+  td = match.start_date
+  td = match.start_time.try(:strftime, "%H:%M")
+  td = link_to 'View match', match, class: "btn btn-primary"
