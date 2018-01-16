@@ -4,11 +4,19 @@ table.table.table-striped
       td Position
       td Team
       td Games
-    - tournament.teams.each.with_index(1) do |team, i|
+      td Wins
+      td Loss
+      td Draw
+      td Points
+    - Team.by_points(tournament).each.with_index(1) do |team, i|
       tr
         td = i
         td = team.title
-        td = Match.played(tournament, team)
+        td = team.played(tournament)
+        td = team.wins(tournament)
+        td = team.loss(tournament)
+        td = team.draw(tournament)
+        td = team.points(tournament)
 
 
     

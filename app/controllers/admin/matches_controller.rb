@@ -23,7 +23,7 @@ class Admin::MatchesController < Admin::BaseController
   def show; end
 
   def update
-    if @match.update(match_params)
+    if @match.results(match_params)
       redirect_to [:admin, @match], notice: 'Match was successfully updated.'
     else
       redirect_to [:admin, @match], alert: 'Score must be in range 0..50.'
@@ -40,7 +40,11 @@ class Admin::MatchesController < Admin::BaseController
       :team_b_id,
       :tournament_id,
       :team_a_goals,
-      :team_b_goals
+      :team_b_goals,
+      :finished,
+      :winner_id,
+      :loser_id,
+      :draw
     )      
   end
 
