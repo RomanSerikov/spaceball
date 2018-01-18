@@ -1,0 +1,12 @@
+.row
+  .col-md-4
+    h2 #{@user.email}
+
+    - if @user.captain
+      p User is captain!
+    - else
+      p This is just a simple user.
+
+    .control-links
+      p = link_to "Edit user info", edit_admin_user_path(@user)
+      p = link_to "Back to users list", admin_users_path

@@ -1,0 +1,9 @@
+.row
+  .col-md-4
+    h1 Edit user
+
+    = render 'form', user: @user
+
+    .control-links
+      p = link_to "Back to user info", admin_user_path(@user)
+      p = link_to "Back to users list", admin_users_path

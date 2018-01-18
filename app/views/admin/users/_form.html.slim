@@ -1,0 +1,15 @@
+= form_for [:admin, user] do |form|
+
+  = render 'common/errors', resource: user
+
+  .form-group
+    = form.label :email
+    = form.text_field :email, class: "form-control"
+
+  .form-group
+    .checkbox-inline
+      = form.check_box :captain
+      = form.label :captain
+
+  .actions
+    = form.submit "Save", class: "btn btn-primary"
