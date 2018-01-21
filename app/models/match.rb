@@ -19,25 +19,33 @@ class Match < ApplicationRecord
   end
 
   def results(params)
-    results = {}
-    results[:draw] = true if params[:team_a_goals] == params[:team_b_goals]
-
-    if params[:team_a_goals] > params[:team_b_goals]
-      results[:winner_id] = team_a.id
-      results[:loser_id] = team_b.id
-    elsif params[:team_a_goals] < params[:team_b_goals]
-      results[:winner_id] = team_b.id
-      results[:loser_id] = team_a.id
-    end
-
-    results[:finished] = true
+    results = { 
+      finished: true,
+      draw: check_draw(params),
+      winner_id: who_win(params),
+      loser_id: who_lose(params)
+    }
 
     update(params.merge(results))
   end
 
   private
 
-    def check_teams_are_different
-      errors.add(:base, "Teams can't be the same") if team_a == team_b
-    end
+  def check_teams_are_different
+    errors.add(:base, "Teams can't be the same") if team_a == team_b
+  end
+
+  def check_draw(params)
+    params[:team_a_goals] == params[:team_b_goals]
+  end
+
+  def who_win(params)
+    return nil if check_draw(params)
+    params[:team_a_goals] > params[:team_b_goals] ? team_a.id : team_b.id
+  end
+
+  def who_lose(params)
+    return nil if check_draw(params)
+    params[:team_a_goals] < params[:team_b_goals] ? team_a.id : team_b.id
+  end
 end

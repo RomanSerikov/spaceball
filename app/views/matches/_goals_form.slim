@@ -1,9 +1,4 @@
-- if game.team_a_goals.nil?
-  - @btn_txt = "Save match score"
-- else
-  - @btn_txt = "Approve captain's score"
-
-= form_for [:admin, game] do |form|
+= form_for game do |form|
 
   = render "common/errors", resource: game
 
@@ -16,4 +11,4 @@
     = form.number_field :team_b_goals, class: "form-control"
 
   .actions
-    = form.submit @btn_txt, class: "btn btn-primary"
+    = form.submit "Save match score", class: "btn btn-primary"

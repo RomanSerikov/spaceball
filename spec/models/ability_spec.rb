@@ -23,6 +23,7 @@ describe Ability do
 
     it { should be_able_to :read, :all }
     it { should be_able_to :create, Player, team: user.team }
+    it { should be_able_to :update, Match }
   end
 
   describe 'for admin' do

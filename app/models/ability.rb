@@ -30,6 +30,7 @@ class Ability
   def captain_abilities
     can :read, :all
     can :create, Player, team: user.team
+    can :update, Match
   end
 
   def admin_abilities
