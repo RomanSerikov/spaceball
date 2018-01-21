@@ -4,6 +4,13 @@
 
     p Description: #{@team&.description}
 
+    - if @team.captain.present?
+      h3 Team captain
+      ul
+        li #{@team.captain.email}
+    - else
+      p No captain.
+
     - if @team.players.present?
       h3 Team roster
       ul
