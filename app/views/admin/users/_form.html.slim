@@ -11,5 +11,9 @@
       = form.check_box :captain
       = form.label :captain
 
+  .form-group
+    = form.label 'Choose team'
+    = form.collection_select :team_id, Team.all, :id, :title, { prompt: "Choose team" }, class: "form-control"
+
   .actions
     = form.submit "Save", class: "btn btn-primary"

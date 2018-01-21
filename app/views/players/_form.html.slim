@@ -1,0 +1,15 @@
+= form_for player do |form|
+
+  = render 'common/errors', resource: player
+
+  .form-group
+    = form.label :first_name
+    = form.text_field :first_name, class: "form-control"
+
+  .form-group
+    = form.label :last_name
+    = form.text_field :last_name, class: "form-control"
+
+  .actions
+    = form.hidden_field :team_id, :value => current_user&.team&.id
+    = form.submit 'Create', class: "btn btn-primary"

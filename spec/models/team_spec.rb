@@ -9,6 +9,7 @@ RSpec.describe Team, type: :model do
     it { should have_many(:tournaments_teams) }
     it { should have_many(:tournaments).through(:tournaments_teams) }
     it { should have_many(:players) }
+    it { should have_one(:captain).class_name('User') }
   end
   
   describe 'ActiveModel validations' do

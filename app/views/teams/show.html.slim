@@ -13,4 +13,6 @@
       p No players in this team yet.
 
     .control-links
-      = link_to "Back to teams list", teams_path
+      - if current_user&.captain? && current_user&.team == @team
+        p = link_to "Add player", new_player_path, class: "btn btn-primary"
+      p = link_to "Back to teams list", teams_path

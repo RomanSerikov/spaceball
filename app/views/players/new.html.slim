@@ -1,0 +1,9 @@
+.row
+  .col-md-6
+    h1 New player for #{current_user&.team.title}
+
+    = render "form", player: @player
+
+    .control-links
+      - if current_user.captain? && current_user.team.present?
+        = link_to "Back to my team", team_path(current_user.team)

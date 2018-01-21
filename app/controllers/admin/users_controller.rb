@@ -21,7 +21,7 @@ class Admin::UsersController < Admin::BaseController
   private
 
   def user_params
-    params.require(:user).permit(:email, :captain)
+    params.require(:user).permit(:email, :captain, :team_id)
   end
 
   def set_user
