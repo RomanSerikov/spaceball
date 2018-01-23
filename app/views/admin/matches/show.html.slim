@@ -4,10 +4,10 @@
     h2 #{@match.start_time.try(:strftime, "%H:%M")}
     h2 #{@match.title}
 
-    - if @match.team_a_goals.nil?
-      = render "goals_form", game: @match
-    - else
+    - if @match.finished?
       h3 #{@match.team_a_goals} : #{@match.team_b_goals}
-
+    - else
+      = render "goals_form", game: @match
+      
     .control-links
       p = link_to "Back to matches list", admin_tournament_matches_path(@match.tournament)

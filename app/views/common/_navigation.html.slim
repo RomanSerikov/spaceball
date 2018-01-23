@@ -9,10 +9,13 @@
     .navbar-collapse.collapse.navbar-responsive-collapse
       ul class="nav navbar-nav pull-right"
         - if user_signed_in?
+          - if current_user.captain? && current_user.team.present?
+            li = link_to "Моя команда", team_path(current_user.team)
           - if current_user.admin?
             li = link_to "Турниры", admin_tournaments_path
             li = link_to "Команды", admin_teams_path
             li = link_to "Игроки", admin_players_path
+            li = link_to "Пользователи", admin_users_path
           li = link_to "Выйти", destroy_user_session_path, method: :delete
         - else
           li = link_to "Войти", new_user_session_path

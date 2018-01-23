@@ -7,7 +7,11 @@ class Ability
     @user = user
 
     if user
-      user.admin? ? admin_abilities : user_abilities
+      if user.admin?
+        admin_abilities
+      else
+        user.captain? ? captain_abilities : user_abilities
+      end
     else
       guest_abilities
     end
@@ -21,6 +25,12 @@ class Ability
 
   def user_abilities
     guest_abilities      
+  end
+
+  def captain_abilities
+    can :read, :all
+    can :create, Player, team: user.team
+    can :update, Match
   end
 
   def admin_abilities

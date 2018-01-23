@@ -12,6 +12,10 @@ RSpec.describe Match, type: :model do
     it { should have_db_column(:team_a_id) }
     it { should belong_to(:team_b).class_name('Team') }
     it { should have_db_column(:team_b_id) }
+    it { should belong_to(:winner).class_name('Team') }
+    it { should have_db_column(:winner_id) }
+    it { should belong_to(:loser).class_name('Team') }
+    it { should have_db_column(:loser_id) }
   end
 
   describe 'ActiveModel validations' do
