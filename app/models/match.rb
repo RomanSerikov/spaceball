@@ -27,6 +27,8 @@ class Match < ApplicationRecord
     }
 
     update(params.merge(results))
+    TelegramBotService.new.send(result_message)
+    TelegramBotService.new.send(tournament.table)
   end
 
   private
@@ -47,5 +49,9 @@ class Match < ApplicationRecord
   def who_lose(params)
     return nil if check_draw(params)
     params[:team_a_goals] < params[:team_b_goals] ? team_a.id : team_b.id
+  end
+
+  def result_message
+    "Match #{title} finished. Score: #{team_a_goals}:#{team_b_goals}."
   end
 end

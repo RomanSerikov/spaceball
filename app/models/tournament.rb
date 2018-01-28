@@ -12,4 +12,14 @@ class Tournament < ApplicationRecord
   def remove_team(team_id)
     teams.delete(team_id)
   end
+
+  def table
+    current_table = "Tournament table: \n"
+
+    teams.each.with_index(1) do |team, i|
+      current_table << "#{i}. #{team.title}. Points: #{team.points(self)} \n"
+    end
+
+    current_table
+  end
 end
