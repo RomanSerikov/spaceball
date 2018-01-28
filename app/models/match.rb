@@ -27,8 +27,8 @@ class Match < ApplicationRecord
     }
 
     update(params.merge(results))
-    TelegramBotService.new.send(result_message)
-    TelegramBotService.new.send(tournament.table)
+    send_telegram
+    post_vk
   end
 
   private
@@ -53,5 +53,17 @@ class Match < ApplicationRecord
 
   def result_message
     "Match #{title} finished. Score: #{team_a_goals}:#{team_b_goals}."
+  end
+
+  def send_telegram
+    tg = TelegramBotService.new
+    tg.send(result_message)
+    tg.send(tournament.table)
+  end
+
+  def post_vk
+    vk = VkPostService.new
+    vk.post(result_message)
+    vk.post(tournament.table)
   end
 end

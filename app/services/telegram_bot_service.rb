@@ -11,10 +11,4 @@ class TelegramBotService
       bot.api.send_message(chat_id: @chat_id, text: message)
     end
   end
-
-  def send_table(tournament)
-    Telegram::Bot::Client.run(@token) do |bot|
-      bot.api.send_message(chat_id: @chat_id, text: tournament.table)
-    end
-  end
 end
