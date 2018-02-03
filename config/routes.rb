@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "teams#index"
+  root to: "tournaments#index"
 
   namespace :admin do
     resources :teams, only: %i[index show new create]
