@@ -43,12 +43,12 @@ class Match < ApplicationRecord
 
   def who_win(params)
     return nil if check_draw(params)
-    params[:team_a_goals] > params[:team_b_goals] ? team_a.id : team_b.id
+    params[:team_a_goals].to_i > params[:team_b_goals].to_i ? team_a.id : team_b.id
   end
 
   def who_lose(params)
     return nil if check_draw(params)
-    params[:team_a_goals] < params[:team_b_goals] ? team_a.id : team_b.id
+    params[:team_a_goals].to_i < params[:team_b_goals].to_i ? team_a.id : team_b.id
   end
 
   def result_message
