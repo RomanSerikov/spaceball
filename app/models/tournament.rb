@@ -16,7 +16,7 @@ class Tournament < ApplicationRecord
   def table
     current_table = "Tournament table: \n"
 
-    teams.each.with_index(1) do |team, i|
+    Team.by_points(self).each.with_index(1) do |team, i|
       current_table << "#{i}. #{team.title}. Points: #{team.points(self)} \n"
     end
 
