@@ -1,9 +1,12 @@
 .row
   .col-md-4
     h1 Matches List
+    
+.row
+  .list-group = render @matches
 
-    .list-group = render @matches
-
+.row
+  .col-md-4
     .control-links
       p = link_to "Add match", new_admin_tournament_match_path(@tournament), class: "btn btn-primary"
       p = link_to "Back to tournament", admin_tournament_path(@tournament), class: "btn btn-primary"
