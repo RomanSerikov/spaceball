@@ -9,10 +9,11 @@
 - else
   p No teams in this tournament yet.
 
-h3 Teams not in tournament list:
-.list-group.candidates
-  - Team.not_participating(tournament).each do |team|
-    = link_to add_team_admin_tournament_path(:team => team.id), method: :post, remote: true, class: "list-group-item" do
-      span.glyphicon.glyphicon-plus
-      |  
-      = team.title
+- if Team.not_participating(tournament).present?
+  h3 Teams not in tournament list:
+  .list-group.candidates
+    - Team.not_participating(tournament).each do |team|
+      = link_to add_team_admin_tournament_path(:team => team.id), method: :post, remote: true, class: "list-group-item" do
+        span.glyphicon.glyphicon-plus
+        |  
+        = team.title
