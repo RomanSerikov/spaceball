@@ -26,9 +26,10 @@ class Match < ApplicationRecord
       loser_id: who_lose(params)
     }
 
-    update(params.merge(results))
-    send_telegram
-    post_vk
+    if update(params.merge(results))
+      send_telegram
+      post_vk
+    end
   end
 
   private
