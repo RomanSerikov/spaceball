@@ -5,5 +5,9 @@
     = render 'form', user: @user
 
     .control-links
-      p = link_to "Back to user info", admin_user_path(@user)
-      p = link_to "Back to users list", admin_users_path
+      p = link_to admin_user_path(@user) do
+        span.glyphicon.glyphicon-arrow-left 
+        span  Back to user info
+      p = link_to admin_users_path do
+        span.glyphicon.glyphicon-arrow-left 
+        span  Back to users list

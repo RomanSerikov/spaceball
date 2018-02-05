@@ -5,4 +5,7 @@
     .list-group = render @tournaments
 
     .control-links
-      = link_to "Add tournament", new_admin_tournament_path, class: "btn btn-primary"
+      p = link_to "Add tournament", new_admin_tournament_path, class: "btn btn-primary"
+      p = link_to admin_index_path do
+        span.glyphicon.glyphicon-arrow-left 
+        span  Back to admin panel

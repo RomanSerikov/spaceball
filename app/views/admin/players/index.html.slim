@@ -5,4 +5,7 @@
     .list-group = render @players
 
     .control-links
-      = link_to "Add player", new_admin_player_path, class: "btn btn-primary"
+      p = link_to "Add player", new_admin_player_path, class: "btn btn-primary"
+      p = link_to admin_index_path do
+        span.glyphicon.glyphicon-arrow-left 
+        span  Back to admin panel

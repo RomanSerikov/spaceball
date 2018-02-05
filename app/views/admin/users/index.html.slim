@@ -3,3 +3,8 @@
     h1 Users List
 
     .list-group = render @users
+
+    .control-links
+      p = link_to admin_index_path do
+        span.glyphicon.glyphicon-arrow-left 
+        span  Back to admin panel

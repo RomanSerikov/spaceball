@@ -1,0 +1,9 @@
+.row
+  .col-md-4
+    h1 Admin control panel
+
+    ul.list-group
+      li.list-group-item = link_to "Турниры", admin_tournaments_path
+      li.list-group-item = link_to "Команды", admin_teams_path
+      li.list-group-item = link_to "Игроки", admin_players_path
+      li.list-group-item = link_to "Пользователи", admin_users_path

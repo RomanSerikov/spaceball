@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "tournaments#index"
 
   namespace :admin do
+    get "/index" => "static_pages#index"
     resources :teams, only: %i[index show new create]
     resources :players, only: %i[index show new create]
     resources :users, only: %i[index show edit update]
