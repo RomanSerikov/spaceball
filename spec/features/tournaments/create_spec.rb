@@ -26,8 +26,8 @@ feature 'Create tournament', %q{
 
       expect(page).to have_content 'Tournament was successfully created'
       expect(page).to have_content 'Summer Superball'
-      expect(page).to have_content '2018-02-01'
-      expect(page).to have_content '2018-04-01'
+      expect(page).to have_content '01.02.18'
+      expect(page).to have_content '01.04.18'
     end
 
     scenario 'tries to create tournament with invalid parameters' do
