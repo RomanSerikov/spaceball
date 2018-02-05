@@ -1,17 +1,31 @@
-w.row
-  .col-md-4
-    h2 #{@match.start_date}
-    h2 #{@match.start_time.try(:strftime, "%H:%M")}
-    h2 #{@match.title}
+.row
+  .col-md-3
+    h2 Team #{@match.team_a.title}
 
-    - if can_score?(current_user, @match)
-      = render "goals_form", game: @match
-      br
+  .col-md-3
+    p.text-center #{@match.start_date.try(:strftime, "%d.%m.%y")} #{@match.start_time.try(:strftime, "%H:%M")}
 
     - if @match.finished?
-      h3 #{@match.team_a_goals} : #{@match.team_b_goals}
+      div.text-center
+        h1 #{@match.team_a_goals} : #{@match.team_b_goals}
     - else
-      p Match haven't played yet.
-      
+      p.text-center Match haven't played yet.
+
+  .col-md-3
+    h2 Team #{@match.team_b.title}
+
+- if can_score?(current_user, @match)
+  .row
+    hr
+    .col-md-3
+      .panel.panel-default
+        .panel-heading You can enter match score
+        .panel-body
+          = render "goals_form", game: @match
+
+.row
+  .col-md-4
     .control-links
-      p = link_to "Back to matches list", tournament_matches_path(@match.tournament)
+      = link_to tournament_matches_path(@match.tournament) do
+        span.glyphicon.glyphicon-arrow-left 
+        span  Back to matches list
