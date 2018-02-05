@@ -1,14 +1,19 @@
 .row
   .col-md-6
     h2 #{@tournament.title}
+    p 
+      | Tournament dates:  
+      = @tournament.start_date.strftime("%d.%m.%y")
+      = " — "
+      = @tournament.end_date.strftime("%d.%m.%y")
 
-    p From: #{@tournament.start_date}
-    p To: #{@tournament.end_date}
+    p = link_to "Tournament schedule", tournament_matches_path(@tournament), class: "btn btn-primary"
 
     h2 Tournament table
 
     = render 'tournaments/teams', tournament: @tournament
 
     .control-links
-      p = link_to "Tournament schedule", tournament_matches_path(@tournament), class: "btn btn-primary"
-      p = link_to "Back to tournaments list", tournaments_path
+      p = link_to tournaments_path do
+        span.glyphicon.glyphicon-arrow-left 
+        span  Back to tournaments list

@@ -2,14 +2,12 @@
   .col-md-8
     h1 Matches List
 
-    table.table.table-striped
-      thead
-        tr
-          td Teams
-          td Date
-          td Time
-          td
-        = render @matches
+.row
+  .list-group = render @matches
 
+.row
+  .col-md-4
     .control-links
-      p = link_to "Back to tournament", tournament_path(@tournament), class: "btn btn-primary"
+      p = link_to tournament_path(@tournament) do
+        span.glyphicon.glyphicon-arrow-left 
+        span  Back to tournament

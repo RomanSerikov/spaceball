@@ -3,20 +3,20 @@ table.table.table-striped
     tr
       td Position
       td Team
-      td Games
-      td Wins
-      td Loss
-      td Draw
-      td Points
+      td.text-center Games
+      td.text-center Wins
+      td.text-center Loss
+      td.text-center Draw
+      td.text-center Points
     - Team.by_points(tournament).each.with_index(1) do |team, i|
       tr
         td = i
         td = team.title
-        td = team.played(tournament)
-        td = team.wins(tournament)
-        td = team.loss(tournament)
-        td = team.draw(tournament)
-        td = team.points(tournament)
+        td.text-center = team.played(tournament)
+        td.text-center = team.wins(tournament)
+        td.text-center = team.loss(tournament)
+        td.text-center = team.draw(tournament)
+        td.text-center = team.points(tournament)
 
 
     
