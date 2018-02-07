@@ -4,6 +4,14 @@
 
     p Description: #{@team&.description}
 
+    - if @team.tournaments.present?
+      h3 Team tournaments
+      ul
+        - @team.tournaments.each do |tournament|
+          li = link_to tournament.title, tournament
+    - else
+      p No tournaments yet.
+
     - if @team.players.present?
       h3 Team roster
       ul
@@ -15,4 +23,6 @@
     .control-links
       - if current_user&.captain? && current_user&.team == @team
         p = link_to "Add player", new_player_path, class: "btn btn-primary"
-      p = link_to "Back to teams list", teams_path
+      p = link_to teams_path do
+        span.glyphicon.glyphicon-arrow-left 
+        span  Back to teams list

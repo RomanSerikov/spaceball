@@ -4,6 +4,14 @@
 
     p Description: #{@team&.description}
 
+    - if @team.tournaments.present?
+      h3 Team tournaments
+      ul
+        - @team.tournaments.each do |tournament|
+          li = link_to tournament.title, tournament
+    - else
+      p No tournaments yet.
+
     - if @team.captain.present?
       h3 Team captain
       ul
@@ -20,4 +28,6 @@
       p No players in this team yet.
 
     .control-links
-      = link_to "Back to teams list", admin_teams_path
+      p = link_to admin_teams_path do
+        span.glyphicon.glyphicon-arrow-left 
+        span  Back to teams list
