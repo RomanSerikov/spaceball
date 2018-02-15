@@ -13,7 +13,11 @@ class Match < ApplicationRecord
   validate :check_teams_are_different
 
   def self.played(tournament, team)
-    tournament.matches.where(finished: true).where("team_a_id = ? or team_b_id = ?", team, team).count
+    tournament
+      .matches
+      .where(finished: true)
+      .where("team_a_id = ? or team_b_id = ?", team, team)
+      .count
   end
 
   def title
