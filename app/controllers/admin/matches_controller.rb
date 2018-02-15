@@ -7,7 +7,7 @@ class Admin::MatchesController < Admin::BaseController
   end
 
   def new
-    @match = Match.new
+    @match = Match.new(start_date: @tournament.start_date)
   end
 
   def create
