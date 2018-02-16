@@ -38,7 +38,8 @@ RSpec.describe Match, type: :model do
     let(:team_1) { create(:team) }
     let(:team_2) { create(:team) }
     let(:team_3) { create(:team) }
-    let!(:game)  do
+
+    before do
       create(:match, team_a: team_1, team_b: team_2, finished: true, tournament: tournament)
       create(:match, team_a: team_1, team_b: team_3, finished: true, tournament: tournament)
     end
