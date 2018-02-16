@@ -33,6 +33,21 @@ RSpec.describe Match, type: :model do
     end
   end
 
+  describe '.played' do
+    let(:tournament) { create(:tournament) }
+    let(:team_1) { create(:team) }
+    let(:team_2) { create(:team) }
+    let(:team_3) { create(:team) }
+    let!(:game)  do
+      create(:match, team_a: team_1, team_b: team_2, finished: true, tournament: tournament)
+      create(:match, team_a: team_1, team_b: team_3, finished: true, tournament: tournament)
+    end
+
+    it 'returns the number of finished games for team in tournament' do
+      expect(Match.played(tournament, team_1)).to eq 2
+    end
+  end
+
   describe '#title' do
     let!(:team_1) { create(:team, title: 'Arsenal') } 
     let!(:team_2) { create(:team, title: 'Barcelona') }
