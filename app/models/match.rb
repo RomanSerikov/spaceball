@@ -32,10 +32,10 @@ class Match < ApplicationRecord
       loser_id: who_lose(params)
     }
 
-    if update(params.merge(results))
-      send_telegram
-      post_vk
-    end
+    return unless update(params.merge(results))
+    
+    send_telegram
+    post_vk
   end
 
   private

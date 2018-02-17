@@ -1,3 +1,5 @@
-class Admin::StaticPagesController < Admin::BaseController
-  def index; end
+module Admin
+  class StaticPagesController < BaseController
+    def index; end
+  end
 end

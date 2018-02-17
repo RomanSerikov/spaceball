@@ -12,6 +12,7 @@ AllCops:
     - 'spec/spec_helper.rb'
     - Gemfile
     - Rakefile
+    - rubocop_pre_commit_hook.rb
   
 Metrics/LineLength:
   Max: 100

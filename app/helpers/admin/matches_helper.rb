@@ -1,2 +1,4 @@
-module Admin::MatchesHelper
+module Admin
+  module MatchesHelper
+  end
 end

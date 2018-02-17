@@ -16,7 +16,10 @@ class Team < ApplicationRecord
   end
 
   def played(tournament)
-    tournament.matches.where(finished: true).where("team_a_id = ? or team_b_id = ?", self, self).count
+    tournament.matches
+              .where(finished: true)
+              .where("team_a_id = ? or team_b_id = ?", self, self)
+              .count
   end
 
   def wins(tournament)
