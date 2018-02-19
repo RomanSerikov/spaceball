@@ -22,4 +22,14 @@ class Tournament < ApplicationRecord
 
     current_table
   end
+
+  def auto_start_date
+    next_day_after_last_match || start_date
+  end
+
+  private
+
+  def next_day_after_last_match
+    matches.last.start_date + 1.day if matches.present?
+  end
 end

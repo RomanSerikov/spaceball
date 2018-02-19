@@ -8,7 +8,7 @@ module Admin
     end
 
     def new
-      @match = Match.new(start_date: @tournament.start_date)
+      @match = Match.new(start_date: @tournament.auto_start_date)
     end
 
     def create
