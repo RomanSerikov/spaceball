@@ -5,3 +5,31 @@
 .list-group-item {
   margin-top: 5px;
 }
+
+.simple-calendar {
+  .day {}
+
+  .wday-0 {
+    background-color: #ffccd3;
+  }
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {
+    background-color: #ffccd3;
+  }
+
+  .today {}
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {}
+  .next-month { }
+  .current-month {}
+
+  .has-events {}
+}

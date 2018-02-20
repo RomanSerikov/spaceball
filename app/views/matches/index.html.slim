@@ -3,7 +3,16 @@
     h1 Matches List
 
 .row
-  .list-group = render @matches
+  .col-md-12
+    = month_calendar attribute: :start_date, events: @matches do |date, matches|
+      = date.strftime("%-d")
+
+      - matches.each do |game|
+        div[class="list-group-item #{"list-group-item-success" if game.finished}"]
+          = link_to game.title, game
+          - if game.finished
+            br
+            span.label.label-default #{game.team_a_goals} : #{game.team_b_goals}
 
 .row
   .col-md-4
