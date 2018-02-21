@@ -1,0 +1,30 @@
+.container
+  .simple-calendar
+    .calendar-heading
+      .row.text-center
+        .col-md-1.col-xs-4
+          = link_to calendar.url_for_previous_view, class: "btn btn-default" do
+            span.glyphicon.glyphicon-arrow-left
+            span  Previous
+        .col-md-10.col-xs-4
+          h4.calendar-title
+            = "#{t('date.month_names')[start_date.month]} #{start_date.year}"
+        .col-md-1.col-xs-4
+          = link_to calendar.url_for_next_view, class: "btn btn-default" do
+            span Next 
+            span.glyphicon.glyphicon-arrow-right
+    br
+    table.table.table-striped
+      thead
+        tr
+          - date_range.slice(0, 7).each do |day|
+            th
+              .text-center
+                = t('date.abbr_day_names')[day.wday]
+      tbody
+        - date_range.each_slice(7) do |week|
+          tr
+            - week.each do |day|
+              = content_tag :td, class: calendar.td_classes_for(day) do
+                .text-center
+                  - block.call day, sorted_events.fetch(day, [])
